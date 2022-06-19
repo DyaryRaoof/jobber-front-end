@@ -1,0 +1,14 @@
+.header { 
+    background-color: #774360 ;
+}
+
+.header a {
+    color: #E7AB79;
+    text-decoration: none;
+}
+
+.header a:focus, .header a:hover {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}

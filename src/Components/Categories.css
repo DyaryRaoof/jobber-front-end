@@ -1,0 +1,11 @@
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.category-card{
+    margin: 10px;
+    background-color: #B25068;
+    color: white;
+
+}

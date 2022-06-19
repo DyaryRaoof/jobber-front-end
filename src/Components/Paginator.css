@@ -1,0 +1,9 @@
+.paginator-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.paginator-container a{
+    color: #B25068;
+}

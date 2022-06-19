@@ -1,7 +1,7 @@
 import DUYMMY_JOBS from '../DUMMY_DATA/jobs';
 import './JobList.css';
 
-const JobList = () => {
+const JobListPage = () => {
   return (
     <div>
       <h1>Job List</h1>
@@ -25,4 +25,4 @@ const JobList = () => {
   );
 };
 
-export default JobList;
+export default JobListPage;

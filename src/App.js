@@ -1,7 +1,7 @@
 import Header from './Components/Header';
 import CategoriesPage from './Components/Categories-Page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import JobList from './Components/JobList';
+import JobListPage from './Components/JobListPage';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<CategoriesPage />} />
-          <Route path="/categories/:id/jobs" element={<JobList />} />
+          <Route path="/categories/:id/jobs" element={<JobListPage />} />
         </Routes>
       </div>
     </Router>

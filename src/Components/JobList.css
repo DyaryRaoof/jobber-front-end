@@ -1,0 +1,12 @@
+.job-list-card-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.job-list-card{
+    background-color: #B25068;
+    color: white; 
+    margin: 5px;
+    border-radius: 5%;
+    padding: 10px;
+}

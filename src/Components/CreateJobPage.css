@@ -1,0 +1,10 @@
+.create-job-page-container label{
+    color: #B25068;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.create-job-page-container button {
+    background-color: #E7AB79  !important;
+    border: none;
+}

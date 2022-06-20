@@ -1,10 +1,10 @@
-import Header from './Components/Header';
-import CategoriesPage from './Components/Categories-Page';
+import Header from './components/Header';
+import CategoriesPage from './components/Categories-Page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import JobListPage from './Components/JobListPage';
-import CreateJobPage from './Components/CreateJobPage';
-import SignUpPage from './Components/SignUpPage';
-import LoginPage from './Components/LoginPage';
+import JobListPage from './components/JobListPage';
+import CreateJobPage from './components/CreateJobPage';
+import SignUpPage from './components/SignUpPage';
+import LoginPage from './components/LoginPage';
 
 function App() {
   return (

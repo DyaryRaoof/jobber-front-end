@@ -2,5 +2,10 @@
     margin: 10px;
     background-color: #B25068 !important;
     color: white;
+    cursor: pointer;
+}
 
+
+.category-card img{
+    height: 70%;
 }

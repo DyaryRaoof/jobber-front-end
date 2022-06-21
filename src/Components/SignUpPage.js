@@ -1,22 +1,42 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { signUpUser } from '../api/users';
 
 const SignUpPage = () => {
-  const [response, setResponce] = useState(null);
+  const [response, setResponse] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassoword = e.target.confirmPassoword.value;
+    const phone = e.target.phone.value;
+    const facebook = e.target.facebook.value;
+
+    if (!name || !email || !password || !confirmPassoword || !phone || !facebook) {
+      setResponse({ data: 'You Need to fill in all fields' });
+      return;
+    } else if (e.target.password.value !== e.target.confirmPassoword.value) {
+      setResponse({ data: "Passwords don't match" });
+      return;
+    }
+
     const user = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      password: e.target.password.value,
-      password_confirmation: e.target.confirmPassoword.value,
-      phone: e.target.phone.value,
-      facebook: e.target.facebook.value,
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: confirmPassoword,
+      phone: phone,
+      facebook: facebook,
     };
 
     const response = await signUpUser(user);
-    setResponce(response);
+    // localStorage.setItem('token', response.headers.authorization);
+    setResponse(response);
+    navigate('/log-in');
   };
 
   return (
@@ -73,6 +93,12 @@ const SignUpPage = () => {
           Create Account
         </button>
       </form>
+      <div>
+        Already have an account?{' '}
+        <Link style={{ color: '#E7AB79' }} to="/log-in">
+          Login
+        </Link>
+      </div>
       {response && <div className="alert alert-warning mt-3">{JSON.stringify(response.data)}</div>}
     </div>
   );

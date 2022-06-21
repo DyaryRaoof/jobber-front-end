@@ -15,7 +15,7 @@ const nullifyTokenIfExpired = (token) => {
 
 const setAxiosHeaders = () => {
   axios.defaults.baseURL = backendURL;
-  let token = JSON.parse(localStorage.getItem('token'));
+  let token = localStorage.getItem('token');
   if (token) {
     token = nullifyTokenIfExpired(token);
     axios.defaults.headers.common.Authorization = token;

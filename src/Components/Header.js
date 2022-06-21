@@ -1,7 +1,27 @@
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { logOutUser } from '../api/users';
 
 const Header = () => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const navigate = useNavigate();
+  const selectEntryMethod = async () => {
+    if (isLoggedIn === 'true') {
+      const response = await logOutUser();
+      if (response.status === 200) {
+        localStorage.setItem('isLoggedIn', false);
+        localStorage.removeItem('token');
+        navigate('/log-in');
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      }
+      console.log(response);
+    } else {
+      navigate('/sign-up');
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg header">
       <Link className="navbar-brand" to={'/'}>
@@ -24,9 +44,9 @@ const Header = () => {
             </a>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/sign-up">
-              Login
-            </Link>
+            <button className="nav-link" onClick={selectEntryMethod}>
+              {isLoggedIn === 'true' ? 'Log Out' : 'Sign Up'}
+            </button>
           </li>
         </ul>
       </div>

@@ -43,6 +43,13 @@ const Header = () => {
               My Jobs
             </a>
           </li>
+
+          <li className="nav-item">
+            <Link className="nav-link" to="/create-job">
+              Create Job
+            </Link>
+          </li>
+
           <li className="nav-item">
             <button className="nav-link" onClick={selectEntryMethod}>
               {isLoggedIn === 'true' ? 'Log Out' : 'Sign Up'}

@@ -13,12 +13,14 @@ const LoginPage = () => {
     if (response.status === 200) {
       localStorage.setItem('isLoggedIn', true);
       localStorage.setItem('token', response.headers.authorization);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+
       navigate('/');
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      console.log();
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 1000);
     }
-    console.log(response);
   };
 
   return (
